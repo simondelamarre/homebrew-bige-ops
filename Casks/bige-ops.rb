@@ -7,7 +7,7 @@
 
 cask "bige-ops" do
   version "0.2.0"
-  sha256 "de23dc318536c7536dadbfedbdd4ea11d90a4412158846715d9d99805a7b17bd"
+  sha256 "42c33494afd356acdfa95ef19936d1c1148cbabe60ed90c86786bc084668a7a9"
 
   url "https://github.com/simondelamarre/bige-ops-releases/releases/download/v#{version}/bige-ops-#{version}-macos-aarch64.dmg"
   name "bige-ops"
