@@ -14,7 +14,7 @@ cask "bige-ops" do
   desc "Understand, simulate, and deploy Outscale stacks"
   homepage "https://github.com/simondelamarre/bige-ops-releases"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
   depends_on arch: :arm64
 
   app "bige-ops.app"
