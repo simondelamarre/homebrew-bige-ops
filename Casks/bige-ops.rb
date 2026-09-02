@@ -7,7 +7,7 @@
 
 cask "bige-ops" do
   version "0.2.0"
-  sha256 "42c33494afd356acdfa95ef19936d1c1148cbabe60ed90c86786bc084668a7a9"
+  sha256 "29a48cf596c57f851f5219ca349f72a023a7be9b232bec68dd6810d561b3e997"
 
   url "https://github.com/simondelamarre/bige-ops-releases/releases/download/v#{version}/bige-ops-#{version}-macos-aarch64.dmg"
   name "bige-ops"
@@ -18,6 +18,15 @@ cask "bige-ops" do
   depends_on arch: :arm64
 
   app "bige-ops.app"
+
+  # Unsigned / non-notarized builds: macOS marks downloads as quarantined and
+  # reports "is damaged". Clear quarantine + ensure a coherent ad-hoc signature.
+  postflight do
+    app_path = "#{appdir}/bige-ops.app"
+    system_command "/usr/bin/xattr", args: ["-cr", app_path]
+    system_command "/usr/bin/codesign",
+                   args: ["--force", "--deep", "--sign", "-", app_path]
+  end
 
   zap trash: [
     "~/Library/Application Support/bige-ops",
