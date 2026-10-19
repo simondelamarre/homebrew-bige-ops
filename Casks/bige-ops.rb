@@ -14,18 +14,16 @@ cask "bige-ops" do
   desc "Understand, simulate, and deploy Outscale stacks"
   homepage "https://github.com/simondelamarre/bige-ops-releases"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
   depends_on arch: :arm64
 
   app "bige-ops.app"
 
   # Unsigned / non-notarized builds: macOS marks downloads as quarantined and
   # reports "is damaged". Clear quarantine + ensure a coherent ad-hoc signature.
-  postflight do
-    app_path = "#{appdir}/bige-ops.app"
-    system_command "/usr/bin/xattr", args: ["-cr", app_path]
-    system_command "/usr/bin/codesign",
-                   args: ["--force", "--deep", "--sign", "-", app_path]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-cr", "{{appdir}}/bige-ops.app"]
+    run "/usr/bin/codesign", args: ["--force", "--deep", "--sign", "-", "{{appdir}}/bige-ops.app"]
   end
 
   zap trash: [
