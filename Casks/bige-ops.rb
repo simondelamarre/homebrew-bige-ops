@@ -6,12 +6,12 @@
 # After publishing vX.Y.Z, replace version + sha256 (see scripts/bump-homebrew-cask.sh).
 
 cask "bige-ops" do
-  version "0.10.1"
-  sha256 "fc6ec352d08038ae9cc5daa231147d666d15d2dd644d78e175ff8fcf437e60e7"
+  version "0.11.1"
+  sha256 "d9268cc0412d9ce7cd98d65bc0a970e10468f4e2d2dc276087e47208840a3046"
 
   url "https://github.com/simondelamarre/bige-ops-releases/releases/download/v#{version}/bige-ops-#{version}-macos-aarch64.dmg"
   name "bige-ops"
-  desc "Understand, simulate, and deploy Outscale stacks"
+  desc "Simulate, deploy, and operate cloud stacks"
   homepage "https://github.com/simondelamarre/bige-ops-releases"
 
   depends_on arch: :arm64
