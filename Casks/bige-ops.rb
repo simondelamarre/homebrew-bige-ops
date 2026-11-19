@@ -6,8 +6,8 @@
 # After publishing vX.Y.Z, replace version + sha256 (see scripts/bump-homebrew-cask.sh).
 
 cask "bige-ops" do
-  version "0.14.1"
-  sha256 "9a907aeae43bfa0c47f97166536ad522ac49e3cb20a641b3c2418393f21d909b"
+  version "0.15.0"
+  sha256 "bded9eb7ad1751c2b22ba75dc5ef3a5015e84961ac8c7ac56df35628df9de51c"
 
   url "https://github.com/simondelamarre/bige-ops-releases/releases/download/v#{version}/bige-ops-#{version}-macos-aarch64.dmg"
   name "bige-ops"
